@@ -1,5 +1,6 @@
 import { Email } from "./email";
 import { Name } from "./name";
+import { UserData } from "./user-data"
 
 export class User{
     public readonly name: Name;
@@ -14,8 +15,13 @@ export class User{
     };
 
 
-    
-    
+    static create (userData: UserData): User{
+        const name: any = Name.create(userData.name)
+        const email: Email = Email.create(userData.email)
+        const password: string = 'teste' 
+        return new User(name, email, password)
+    }
+
 
 
 }
